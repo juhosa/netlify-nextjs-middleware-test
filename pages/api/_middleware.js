@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 const allowedParams = ["allowed"];
 
@@ -14,8 +14,6 @@ export function middleware(req) {
   });
 
   if (changed) {
-    return NextResponse.redirect(url);
-    // It's also useful to do a rewrite instead of a redirect
-    // return NextResponse.rewrite(url)
+    return NextResponse.rewrite(url);
   }
 }
